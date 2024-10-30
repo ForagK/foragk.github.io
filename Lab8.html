@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+  <link rel="stylesheet" href="CSS/style.css">
+  <TITLE>ЛР8</TITLE>
+
+</HEAD>
+<BODY>
+    <div class="background" id="enemy">
+      <div class="card">
+        <div class="image"></div>
+        <div id="enemyName">Enemy</div>
+      </div>
+      <div class="main">
+        <div class="topArea" id="topArea1">
+        <img src="images/dice1.png" id="enDice1">
+        <img src="images/dice1.png" id="enDice2">
+        <img src="images/dice1.png" id="enDice3">
+        </div>
+        <div class="bottomArea" id="bottomArea1">
+          <div id="enDiceVal">0</div>
+          <div id="buttonArea1">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="background" id="player">
+      <div class="card">
+        <div class="image"></div>
+        <div id="playerName"></div>
+      </div>
+      <div class="main">
+        <div class="topArea" id="topArea">
+        <img src="images/dice1.png" id="plDice1">
+        <img src="images/dice1.png" id="plDice2">
+        <img src="images/dice1.png" id="plDice3">
+        </div>
+        <div class="bottomArea" id="bottomArea">
+          <div id="plDiceVal">0</div>
+          <div id="buttonArea">
+            <button id="start">Gamble!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="result" id="result"></div>
+    <script>
+      let name;
+      while(!name){
+        name = prompt('Enter name');
+        name = name.trim();
+      }
+      playerName.innerHTML=name;
+      let playerDice=0;
+      let enemyDice=0;
+      let playerWin=0;
+      let enemyWin=0;
+      start.addEventListener("click",()=>{
+        result.style.display="none";
+        playerDice=0;
+        enemyDice=0;
+        plDiceVal.innerHTML=playerDice;
+        enDiceVal.innerHTML=enemyDice;
+        document.getElementById("start").disabled = true;
+        setTimeout(()=>RollDice("plDice1","enDice1"),500);
+        setTimeout(()=>RollDice("plDice2","enDice2"),1000);
+        setTimeout(()=>RollDice("plDice3","enDice3"),1500);
+        setTimeout(()=>{
+          result.style.display="inherit";
+          if(playerDice>enemyDice){
+            playerWin++;
+            result.innerHTML="You Won!<b>"+playerWin+' : '+enemyWin;
+          }
+          else{
+            enemyWin++;
+            result.innerHTML="You Lost(<b>"+playerWin+' : '+enemyWin;
+          }
+          if(playerWin<3&&enemyWin<3) document.getElementById("start").disabled = false;
+        },2000)
+        })
+
+        function RollDice(plDiceId,enDiceId){
+          let enemyVal=Math.floor(Math.random()*6+1);
+          let playerVal=Math.floor(Math.random()*6+1);
+          let plDice = document.getElementById(plDiceId);
+          let enDice = document.getElementById(enDiceId);
+          switch(playerVal){
+            case 1:
+            plDice.setAttribute('src','images/dice1.png');
+            break;
+            case 2:
+            plDice.setAttribute('src','images/dice2.png');
+            break;
+            case 3:
+            plDice.setAttribute('src','images/dice3.png');
+            break;
+            case 4:
+            plDice.setAttribute('src','images/dice4.png');
+            break;
+            case 5:
+            plDice.setAttribute('src','images/dice5.png');
+            break;
+            case 6:
+            plDice.setAttribute('src','images/dice6.png');
+            break;
+          }
+          switch(enemyVal){
+            case 1:
+            enDice.setAttribute('src','images/dice1.png');
+            break;
+            case 2:
+            enDice.setAttribute('src','images/dice2.png');
+            break;
+            case 3:
+            enDice.setAttribute('src','images/dice3.png');
+            break;
+            case 4:
+            enDice.setAttribute('src','images/dice4.png');
+            break;
+            case 5:
+            enDice.setAttribute('src','images/dice5.png');
+            break;
+            case 6:
+            enDice.setAttribute('src','images/dice6.png');
+            break;
+          }
+          enemyDice+=enemyVal;
+          playerDice+=playerVal;
+          enDiceVal.innerHTML=enemyDice;
+          plDiceVal.innerHTML=playerDice;
+        }
+    </script>
+</BODY>
+</HTML>

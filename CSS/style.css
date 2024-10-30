@@ -1,0 +1,166 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: antiquewhite;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Consolas;
+    justify-content: space-around;
+}
+.background{
+    margin: auto;
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    height: 40%;
+    display: flex;
+    align-content: space-around;
+    font-size: 2.6vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card{
+    margin: auto;
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+    width: 20%;
+    height: 90%;
+    font-size: 2.6vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    align-content: space-around;
+    flex-direction: column;
+}
+.image{
+    width: 90%;
+    height: 80%;
+    margin: auto;
+    background-color: lightgrey;
+    align-content: space-around;
+    font-weight: bold;
+    font-size: 2.6vw;
+}
+#playerName,#enemyName{
+    text-align: center;
+}
+.main{
+    margin: auto;
+    width: 73%;
+    height: 100%;
+    font-size: 2.6vw;
+    display: flex;
+    flex-direction: column;
+}
+#topArea,#topArea1{
+    width: 100%;
+    height: 66%;
+    margin: auto;
+    font-size: 2.6vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: lightgray;
+    border-radius: 20px;
+}
+img{
+    height: 90%;
+    width: auto;
+}
+#bottomArea,#bottomArea1{
+    width: 100%;
+    height: 34%;
+    margin: auto;
+    font-size: 2.6vw;
+    display: flex;
+}
+#plDiceVal,#enDiceVal{
+    width: 25%;
+    height: 90%;
+    background-color: lightgray;
+    border-radius: 20px;
+    margin: auto;
+    font-size: 5.2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+#buttonArea,#buttonArea1{
+    width: 75%;
+    height: 100%;
+    margin: auto;
+    font-size: 2.6vw;
+    display: flex;
+}
+button{
+    width: 75%;
+    height: 75%;
+    margin: auto;
+    font-weight: bold;
+    font-size: 3.9vw;
+    border-radius: 20px;
+    border-width: 1px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.result{
+    margin: auto;
+    background-color: aliceblue;
+    position: absolute;
+    align-self: center;
+    border-radius: 10px;
+    width: 25%;
+    height: 25%;
+    align-content: space-around;
+    font-weight: bold;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
+    display: none;
+    flex-direction: column;
+    font-size: 5vw;
+    align-items: center;
+    justify-content: center;
+}
+@media (max-width: 1130px){
+    .background{
+        width: 90%;
+        height: 46%;
+        padding: 10px;
+    }
+    .card{
+        width: 45%;
+        height: 50%;
+        font-size: 5.2vw;
+        padding: 10px;
+    }
+    .main{
+        width: 45%;
+        height: 100%;
+    }
+    #topArea,#topArea1{
+        flex-direction: column;
+        height: 87%;
+        justify-content: space-evenly;
+    }
+    img{
+        height: 32%;
+    }
+    #bottomArea,#bottomArea1{
+        width: 100%;
+        height: 13%;
+        margin: auto;
+        font-size: 2.6vw;
+        display: flex;
+    }
+    button{
+        width: 90%;
+        height: 75%;
+    }
+    .result{
+        width: 80%;
+        height: 25%;
+        font-size: 10vw;
+    }
+}

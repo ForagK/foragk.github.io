@@ -2,8 +2,7 @@
 <HTML>
 <HEAD>
   <link rel="stylesheet" href="CSS/style.css">
-  <TITLE>ЛР8</TITLE>
-
+  <TITLE>ЛР9</TITLE>
 </HEAD>
 <BODY>
     <div class="background" id="enemy">
@@ -13,12 +12,13 @@
       </div>
       <div class="main">
         <div class="topArea" id="topArea1">
-        <img src="images/dice1.png" id="enDice1">
-        <img src="images/dice1.png" id="enDice2">
-        <img src="images/dice1.png" id="enDice3">
+        <img src="images/closed.png" id="enCard1">
+        <img src="images/closed.png" id="enCard2">
+        <img src="images/closed.png" id="enCard3">
+        <img src="images/closed.png" id="enCard4">
         </div>
         <div class="bottomArea" id="bottomArea1">
-          <div id="enDiceVal">0</div>
+          <div id="enCardVal">0</div>
           <div id="buttonArea1">
           </div>
         </div>
@@ -31,12 +31,13 @@
       </div>
       <div class="main">
         <div class="topArea" id="topArea">
-        <img src="images/dice1.png" id="plDice1">
-        <img src="images/dice1.png" id="plDice2">
-        <img src="images/dice1.png" id="plDice3">
+        <img src="images/closed.png" id="plCard1">
+        <img src="images/closed.png" id="plCard2">
+        <img src="images/closed.png" id="plCard3">
+        <img src="images/closed.png" id="plCard4">
         </div>
         <div class="bottomArea" id="bottomArea">
-          <div id="plDiceVal">0</div>
+          <div id="plCardVal">0</div>
           <div id="buttonArea">
             <button id="start">Gamble!</button>
           </div>
@@ -45,29 +46,30 @@
     </div>
     <div class="result" id="result"></div>
     <script>
-      let name;
+      let name='';
       while(!name){
         name = prompt('Enter name');
         name = name.trim();
       }
       playerName.innerHTML=name;
-      let playerDice=0;
-      let enemyDice=0;
+      let playerCard=0;
+      let enemyCard=0;
       let playerWin=0;
       let enemyWin=0;
       start.addEventListener("click",()=>{
         result.style.display="none";
-        playerDice=0;
-        enemyDice=0;
-        plDiceVal.innerHTML=playerDice;
-        enDiceVal.innerHTML=enemyDice;
+        playerCard=0;
+        enemyCard=0;
+        plCardVal.innerHTML=playerCard;
+        enCardVal.innerHTML=enemyCard;
         document.getElementById("start").disabled = true;
-        setTimeout(()=>RollDice("plDice1","enDice1"),500);
-        setTimeout(()=>RollDice("plDice2","enDice2"),1000);
-        setTimeout(()=>RollDice("plDice3","enDice3"),1500);
+        setTimeout(()=>FlipCard("plCard1","enCard1"),200);
+        setTimeout(()=>FlipCard("plCard2","enCard2"),400);
+        setTimeout(()=>FlipCard("plCard3","enCard3"),600);
+        setTimeout(()=>FlipCard("plCard4","enCard4"),800);
         setTimeout(()=>{
           result.style.display="inherit";
-          if(playerDice>enemyDice){
+          if(playerCard>enemyCard){
             playerWin++;
             result.innerHTML="You Won!<b>"+playerWin+' : '+enemyWin;
           }
@@ -76,58 +78,139 @@
             result.innerHTML="You Lost(<b>"+playerWin+' : '+enemyWin;
           }
           if(playerWin<3&&enemyWin<3) document.getElementById("start").disabled = false;
-        },2000)
+        },2800)
         })
-
-        function RollDice(plDiceId,enDiceId){
-          let enemyVal=Math.floor(Math.random()*6+1);
-          let playerVal=Math.floor(Math.random()*6+1);
-          let plDice = document.getElementById(plDiceId);
-          let enDice = document.getElementById(enDiceId);
-          switch(playerVal){
+        function FlipCard(plCardId,enCardId){
+          let enemyRand=Math.floor(Math.random()*9);
+          let playerRand=Math.floor(Math.random()*9);
+          let enemyVal=0;
+          let playerVal=0;
+          let plCard = document.getElementById(plCardId);
+          let enCard = document.getElementById(enCardId);
+          plCard.style.animation = "";
+          enCard.style.animation = "";
+          plCard.offsetHeight;
+          enCard.offsetHeight;
+          plCard.style.animation = "flip 2s";
+          enCard.style.animation = "flip 2s";
+          switch(playerRand){
+            case 0:
+            setTimeout(() => {
+              plCard.setAttribute('src','images/6.png');
+            }, 1000);
+            playerVal+=6;
+            break;
             case 1:
-            plDice.setAttribute('src','images/dice1.png');
+            setTimeout(() => {
+              plCard.setAttribute('src','images/7.png');
+            }, 1000);
+            playerVal+=7;
             break;
             case 2:
-            plDice.setAttribute('src','images/dice2.png');
+            setTimeout(() => {
+              plCard.setAttribute('src','images/8.png');
+            }, 1000);
+            playerVal+=8;
             break;
             case 3:
-            plDice.setAttribute('src','images/dice3.png');
+            setTimeout(() => {
+              plCard.setAttribute('src','images/9.png');
+            }, 1000);
+            playerVal+=9;
             break;
             case 4:
-            plDice.setAttribute('src','images/dice4.png');
+            setTimeout(() => {
+              plCard.setAttribute('src','images/10.png');
+            }, 1000);
+            playerVal+=10;
             break;
             case 5:
-            plDice.setAttribute('src','images/dice5.png');
+            setTimeout(() => {
+              plCard.setAttribute('src','images/J.png');
+            }, 1000);
+            playerVal+=2;
             break;
             case 6:
-            plDice.setAttribute('src','images/dice6.png');
+            setTimeout(() => {
+              plCard.setAttribute('src','images/K.png');
+            }, 1000);
+            playerVal+=4;
+            break;
+            case 7:
+            setTimeout(() => {
+              plCard.setAttribute('src','images/Q.png');
+            }, 1000);
+            playerVal+=3;
+            break;
+            case 8:
+            setTimeout(() => {
+              plCard.setAttribute('src','images/A.png');
+            }, 1000);
+            playerVal+=11;
             break;
           }
-          switch(enemyVal){
+          switch(enemyRand){
+            case 0:
+            setTimeout(() => {
+              enCard.setAttribute('src','images/6.png');
+            }, 1000);
+            enemyVal+=6;
+            break;
             case 1:
-            enDice.setAttribute('src','images/dice1.png');
+            setTimeout(() => {
+              enCard.setAttribute('src','images/7.png');
+            }, 1000);
+            enemyVal+=7;
             break;
             case 2:
-            enDice.setAttribute('src','images/dice2.png');
+            setTimeout(() => {
+              enCard.setAttribute('src','images/8.png');
+            }, 1000);
+            enemyVal+=8;
             break;
             case 3:
-            enDice.setAttribute('src','images/dice3.png');
+            setTimeout(() => {
+              enCard.setAttribute('src','images/9.png');
+            }, 1000);
+            enemyVal+=9;
             break;
             case 4:
-            enDice.setAttribute('src','images/dice4.png');
+            setTimeout(() => {
+              enCard.setAttribute('src','images/10.png');
+            }, 1000);
+            enemyVal+=10;
             break;
             case 5:
-            enDice.setAttribute('src','images/dice5.png');
+            setTimeout(() => {
+              enCard.setAttribute('src','images/J.png');
+            }, 1000);
+            enemyVal+=2;
             break;
             case 6:
-            enDice.setAttribute('src','images/dice6.png');
+            setTimeout(() => {
+              enCard.setAttribute('src','images/K.png');
+            }, 1000);
+            enemyVal+=4;
+            break;
+            case 7:
+            setTimeout(() => {
+              enCard.setAttribute('src','images/Q.png');
+            }, 1000);
+            enemyVal+=3;
+            break;
+            case 8:
+            setTimeout(() => {
+              enCard.setAttribute('src','images/A.png');
+            }, 1000);
+            enemyVal+=11;
             break;
           }
-          enemyDice+=enemyVal;
-          playerDice+=playerVal;
-          enDiceVal.innerHTML=enemyDice;
-          plDiceVal.innerHTML=playerDice;
+          setTimeout(() => {
+            enemyCard+=enemyVal;
+            playerCard+=playerVal;
+            enCardVal.innerHTML=enemyCard;
+            plCardVal.innerHTML=playerCard;
+            }, 1500);
         }
     </script>
 </BODY>

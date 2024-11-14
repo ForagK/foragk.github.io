@@ -125,7 +125,7 @@ button:active{
     from { background: url(../images/11.png) 0px 0px; background-size: cover; }
     to { background: url(../images/11.png) 0px 725%; background-size: cover; }
   }
-  @media (max-width: 800px){
+  @media (max-width: 900px){
     .background{
         width: 50%;
     }

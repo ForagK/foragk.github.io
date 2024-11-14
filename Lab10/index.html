@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+  <link rel="stylesheet" href="CSS/style.css">
+  <TITLE>ЛР10</TITLE>
+</HEAD>
+<BODY>
+    <div class="background" id="player">
+      <div class="main">
+        <div class="topArea" id="topArea" >
+          <div id="roll1"></div>
+          <div id="roll2"></div>
+          <div id="roll3"></div>
+        </div>
+        <div class="bottomArea" id="bottomArea">
+          <button id="start">Gamble!</button>
+          <div class="count" id="count">
+            Attempt: 0
+          </div>
+        </div>
+        <div class="result" id="result"></div>
+      </div>
+    </div>
+    <script>
+      //let name='';
+      //while(!name){
+      //  name = prompt('Enter name');
+      //  name = name.trim();
+      //}
+      let gameAmount=0;
+      start.addEventListener("click",()=>{
+        document.getElementById("start").disabled = true;
+        let value1 = roll("roll1");
+        let value2 = roll("roll2");
+        let value3 = roll("roll3");
+        gameAmount++;
+        setTimeout(()=>{
+          count.innerHTML="Attempt: " + gameAmount;
+        if (value1 == value2 && value1 == value3){
+          result.style.display="inherit";
+          result.innerHTML="You won!";
+        }
+        else if(gameAmount==3){
+          result.style.display="inherit";
+          result.innerHTML="You lost(";
+        }
+        else
+          document.getElementById("start").disabled = false;},5100)
+      })
+      function roll(id){
+        let elem=document.getElementById(id);
+        elem.style.animationName = "";
+        elem.offsetHeight;
+        let value=Math.floor(Math.random()*5);
+        switch(value){
+          case 0:
+            elem.style.animationName = "roll1";
+            break;
+          case 1:
+            elem.style.animationName = "roll2";
+            break;
+          case 2:
+            elem.style.animationName = "roll3";
+            break;
+          case 3:
+            elem.style.animationName = "roll4";
+            break;
+          case 4:
+            elem.style.animationName = "roll5";
+            break;
+        }
+        return value;
+      }
+    </script>
+</BODY>
+</HTML>

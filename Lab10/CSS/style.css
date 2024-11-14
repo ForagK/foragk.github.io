@@ -1,0 +1,138 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: antiquewhite;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Consolas;
+    justify-content: space-around;
+}
+.background{
+    margin: auto;
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    height: 60%;
+    display: flex;
+    align-content: space-around;
+    font-size: 2.6vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#playerName{
+    text-align: center;
+}
+.main{
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    font-size: 2.6vw;
+    display: flex;
+    flex-direction: column;
+}
+#topArea{
+    width: 100%;
+    height: 40%;
+    margin: auto;
+    font-size: 2.6vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+    border-radius: 20px;
+}
+#bottomArea{
+    width: 100%;
+    height: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+button{
+    width: 75%;
+    height: 35%;
+    margin: auto;
+    font-weight: bold;
+    font-size: 3.9vw;
+    border-radius: 20px;
+    border-width: 1px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition-duration: 0.4s;
+}
+button:hover{
+    background-color: rgb(220, 220, 220);
+}
+button:active{
+    background-color: rgb(200, 200, 200);
+}
+.count{
+    width: 75%;
+    height: 35%;
+    background-color: lightgray;
+    border-radius: 20px;
+    margin: auto;
+    font-size: 3.9vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.result{
+    margin: auto;
+    background-color: aliceblue;
+    position: absolute;
+    align-self: center;
+    border-radius: 10px;
+    width: 25%;
+    height: 25%;
+    align-content: space-around;
+    font-weight: bold;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
+    display: none;
+    flex-direction: column;
+    font-size: 5vw;
+    align-items: center;
+    justify-content: center;
+}
+#roll1,#roll2,#roll3{
+    background: url(../images/11.png) 0px 0px;
+    width: 33%;
+    background-size: cover;
+    animation-fill-mode: forwards;
+    animation-duration: 5s;
+    aspect-ratio: 1;
+}
+@keyframes roll1 {
+    from { background: url(../images/11.png) 0px 0px; background-size: cover; }
+    to { background: url(../images/11.png) 0px 625%; background-size: cover; }
+  }
+  @keyframes roll2 {
+    from { background: url(../images/11.png) 0px 0px; background-size: cover; }
+    to { background: url(../images/11.png) 0px 650%; background-size: cover; }
+  }
+  @keyframes roll3 {
+    from { background: url(../images/11.png) 0px 0px; background-size: cover; }
+    to { background: url(../images/11.png) 0px 675%; background-size: cover; }
+  }
+  @keyframes roll4 {
+    from { background: url(../images/11.png) 0px 0px; background-size: cover; }
+    to { background: url(../images/11.png) 0px 700%; background-size: cover; }
+  }
+  @keyframes roll5 {
+    from { background: url(../images/11.png) 0px 0px; background-size: cover; }
+    to { background: url(../images/11.png) 0px 725%; background-size: cover; }
+  }
+  @media (max-width: 800px){
+    .background{
+        width: 50%;
+    }
+    button{
+        font-size: 5.9vw;
+    }
+    .count{
+        font-size: 5.9vw;
+    }
+  }

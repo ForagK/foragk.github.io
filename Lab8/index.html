@@ -70,6 +70,9 @@
             playerWin++;
             result.innerHTML="You Won!<b>"+playerWin+' : '+enemyWin;
           }
+          else if(playerDice==enemyDice){
+            result.innerHTML="Tie<b>"+playerWin+' : '+enemyWin;
+          }
           else{
             enemyWin++;
             result.innerHTML="You Lost(<b>"+playerWin+' : '+enemyWin;

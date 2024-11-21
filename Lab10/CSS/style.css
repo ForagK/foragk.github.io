@@ -68,6 +68,27 @@ button:hover{
 button:active{
     background-color: rgb(200, 200, 200);
 }
+#return{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 20%;
+    height: 10%;
+    margin: auto;
+    font-weight: bold;
+    font-size: 3.5vw;
+    border-radius: 20px;
+    border-width: 1px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition-duration: 0.2s;
+}
+#return:hover{
+    background-color: rgb(220, 220, 220);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#return:active{
+    background-color: rgb(200, 200, 200);
+}
 .count{
     width: 75%;
     height: 35%;

@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </HEAD>
 <BODY>
+  <button id="return">Return</button>
     <div class="background" id="player">
       <div class="main">
         <div class="topArea" id="topArea" >
@@ -72,6 +73,9 @@
         }
         return value;
       }
+      document.getElementById("return").addEventListener("click",()=>{
+            window.location.href="../Menu/index.html";
+          })
     </script>
 </BODY>
 </HTML>

@@ -5,6 +5,7 @@
   <TITLE>ЛР9</TITLE>
 </HEAD>
 <BODY>
+  <button id="return">Return</button>
     <div class="background" id="enemy">
       <div class="card">
         <div class="image"></div>
@@ -212,6 +213,9 @@
             plCardVal.innerHTML=playerCard;
             }, 1500);
         }
+        document.getElementById("return").addEventListener("click",()=>{
+            window.location.href="../Menu/index.html";
+          })
     </script>
 </BODY>
 </HTML>

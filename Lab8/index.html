@@ -5,7 +5,8 @@
   <TITLE>ЛР8</TITLE>
 </HEAD>
 <BODY>
-    <div class="background" id="enemy">
+  <button id="return">Return</button>
+  <div class="background" id="enemy">
       <div class="card">
         <div class="image"></div>
         <div id="enemyName">Enemy</div>
@@ -70,9 +71,6 @@
             playerWin++;
             result.innerHTML="You Won!<b>"+playerWin+' : '+enemyWin;
           }
-          else if(playerDice==enemyDice){
-            result.innerHTML="Tie<b>"+playerWin+' : '+enemyWin;
-          }
           else{
             enemyWin++;
             result.innerHTML="You Lost(<b>"+playerWin+' : '+enemyWin;
@@ -131,6 +129,9 @@
           enDiceVal.innerHTML=enemyDice;
           plDiceVal.innerHTML=playerDice;
         }
+        document.getElementById("return").addEventListener("click",()=>{
+            window.location.href="../Menu/index.html";
+          })
     </script>
 </BODY>
 </HTML>

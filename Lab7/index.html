@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+  <link rel="stylesheet" href="CSS/style.css">
+  <TITLE>ЛР7</TITLE>
+</HEAD>
+<BODY>
+  <button id="return">Return</button>
+    <script>
+          let background = document.createElement('div');
+          let textBg = document.createElement('div');
+          let orb = document.createElement('div');
+          let input = document.createElement('input');
+
+          background.classList.add('background');
+          textBg.classList.add('textBg');
+          input.setAttribute('type','text');
+          input.setAttribute('placeholder','Ask here');
+          input.setAttribute('id','input');
+          orb.classList.add('orb');
+          orb.innerHTML='Click me';
+
+          document.body.appendChild(background);
+          background.appendChild(textBg);
+          background.appendChild(orb);
+          textBg.appendChild(input);
+
+          orb.addEventListener("click",()=>{
+            const array=["Yes","No","Maybe"];
+            let input=document.getElementById("input").value;
+            if(input.endsWith('?'))
+            orb.innerHTML=array[Math.floor(Math.random()*3)];
+            else alert("Not a question");
+          })
+          document.getElementById("return").addEventListener("click",()=>{
+            window.location.href="../Menu/index.html";
+          })
+    </script>
+</BODY>
+</HTML>

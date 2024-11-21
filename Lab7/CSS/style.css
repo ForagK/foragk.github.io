@@ -1,0 +1,75 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: antiquewhite;
+}
+body {
+    display: flex;
+    font-family: Consolas;
+}
+.background{
+    margin: auto;
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    height: 80%;
+    align-content: space-around;
+    font-weight: bold;
+    font-size: 2.6vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#return{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 20%;
+    height: 10%;
+    margin: auto;
+    font-weight: bold;
+    font-size: 3.5vw;
+    border-radius: 20px;
+    border-width: 1px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition-duration: 0.2s;
+}
+#return:hover{
+    background-color: rgb(220, 220, 220);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#return:active{
+    background-color: rgb(200, 200, 200);
+}
+.textBg{
+    margin: auto;
+    background-color: rgb(100, 255, 216);
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    height: 10%;
+    text-align: center;
+    align-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.orb{
+    margin: 5% auto auto;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    padding: 20px;
+    border-radius: 100%;
+    width: 512px;
+    height: 512px;
+    text-align: center;
+    align-content: center;
+    background-image: url("Orb.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+input{
+    background-color: inherit;
+    width: 90%;
+    border: 0;
+    text-align: center;
+    font-size: inherit;
+    outline: none;
+}

@@ -124,6 +124,7 @@ button:active{
     cursor: default;
     transition-duration: 0.2s;
     font-size: 5.5vw;
+    user-select: none;
 }
 .arrow{
     color: black !important;

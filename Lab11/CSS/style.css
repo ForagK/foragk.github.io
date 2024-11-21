@@ -1,0 +1,230 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: antiquewhite;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Consolas;
+    justify-content: space-around;
+}
+.background{
+    margin: auto;
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    height: 80%;
+    display: flex;
+    align-content: space-around;
+    font-size: 2.6vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#playerName{
+    text-align: center;
+}
+.main{
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    font-size: 2.6vw;
+    display: flex;
+    flex-direction: column;
+}
+#topArea{
+    width: 100%;
+    height: 50%;
+    margin: auto;
+    font-size: 3.9vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: lightgray;
+    border-radius: 20px;
+    transition-duration: 0.2s;
+    border-width: 4px;
+    border-color: lightgray; 
+    border-style: solid;
+    box-sizing: border-box;
+}
+#topArea:hover{
+    background-color: rgb(205, 205, 205);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-color: rgb(205, 205, 205); 
+}
+#bottomArea{
+    width: 100%;
+    height: 45%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+button{
+    width: 75%;
+    height: 35%;
+    margin: auto;
+    font-weight: bold;
+    font-size: 3.9vw;
+    border-radius: 20px;
+    border-width: 1px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition-duration: 0.4s;
+}
+button:hover{
+    background-color: rgb(220, 220, 220);
+}
+button:active{
+    background-color: rgb(200, 200, 200);
+}
+.count{
+    width: 75%;
+    height: 35%;
+    background-color: lightgray;
+    border-radius: 20px;
+    margin: auto;
+    font-size: 3.9vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.result{
+    margin: auto;
+    background-color: aliceblue;
+    position: absolute;
+    align-self: center;
+    border-radius: 10px;
+    width: 25%;
+    height: 25%;
+    align-content: space-around;
+    font-weight: bold;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
+    display: none;
+    flex-direction: column;
+    font-size: 5vw;
+    align-items: center;
+    justify-content: center;
+}
+#roundArea{
+    height: 25%;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 3.9vw;;
+    align-items: center;
+}
+#arrowLeft,#arrowRight{
+    color: lightgray;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+    transition-duration: 0.2s;
+    font-size: 5.5vw;
+}
+.arrow{
+    color: black !important;
+}
+.arrow:hover{
+    font-weight: bold;
+}
+#roundAmount{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#inputArea{
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input{
+    width: 90%;
+    font-size: 3.9vw;
+    border-radius: 20px;
+    border-width: 1px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 65%;
+    transition-duration: 0.2s;
+}
+input:hover{
+    background-color: rgb(240, 240, 240);
+}
+#stats{
+    height: 35%;
+    display: flex;
+    justify-content: space-between;
+}
+#right,#wrong{
+    height: 100%;
+    width: 45%;
+    font-size: 2.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media (max-width: 1200px){
+    .background{
+        width: 40%;
+    }
+    #topArea{
+        font-size: 4.9vw;
+    }
+    #right,#wrong{
+        font-size: 3.5vw;
+    }
+    input{
+        font-size: 4.9vw;
+    }
+    #roundArea{
+        font-size: 4.9vw;;
+    }
+    #arrowLeft,#arrowRight{
+        font-size: 6.5vw;
+    }
+}
+@media (max-width: 900px){
+    .background{
+        width: 50%;
+    }
+    #topArea{
+        font-size: 5.9vw;
+    }
+    #right,#wrong{
+        font-size: 4.5vw;
+    }
+    input{
+        font-size: 5.9vw;
+    }
+    #roundArea{
+        font-size: 5.9vw;;
+    }
+    #arrowLeft,#arrowRight{
+        font-size: 7.5vw;
+    }
+}
+@media (max-width: 600px){
+    .background{
+        width: 60%;
+    }
+    #topArea{
+        font-size: 7.9vw;
+    }
+    #right,#wrong{
+        font-size: 5.5vw;
+    }
+    input{
+        font-size: 6.9vw;
+    }
+    #roundArea{
+        font-size: 6.9vw;;
+    }
+    #arrowLeft,#arrowRight{
+        font-size: 8.5vw;
+    }
+}

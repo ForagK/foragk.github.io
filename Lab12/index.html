@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+  <link rel="stylesheet" href="CSS/style.css">
+  <TITLE>ЛР12</TITLE>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</HEAD>
+<BODY>
+  <div class="background" id="difChoice">
+    <button id="easy">Easy</button>
+    <button id="medium">Medium</button>
+    <button id="hard">Hard</button>
+  </div>
+  <div class="background">
+      <div class="main">
+        <div class="topArea" id="topArea">Press<br>to<br>start</div>
+        <div class="bottomArea" id="bottomArea">
+          <div id="roundArea">
+            <div id="arrowLeft"><</div>
+            <div id="roundAmount">0/10</div>
+            <div id="arrowRight">></div>
+          </div>
+          <div id="inputArea">
+            <input>
+          </div>
+          <div id="stats">
+            <div id="right">Right<br>0</div>
+            <div id="wrong">Wrong<br>0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+      let right=0;
+      let wrong=0;
+      let round=0;
+      let maxRound=0;
+      let wordsLow=["water","chair","book","tree","sun","cat","dog","house","apple","happy"];
+      let answersLow=["вода","стілець","книга","дерево","сонце","кіт","собака","будинок","яблуко","щасливий"];
+      let wordsMed=["tree","cat","cute","love","moon","ship","blueberry","always","sometimes","evening"];
+      let answersMed=["дерево","кіт","милий","любов","місяць","корабель","чорниця","завжди","іноді","вечір"];
+      let wordsHard=["sanguine","ambiguous","benevolent","meticulous","malicious","optimistic","gracious","elusive","deceive","leisure"];
+      let answersHard=["сангвінік","неоднозначний","доброзичливий","прискіпливий","злий","оптимістичний","милостивий","невловимий","обманювати","дозвілля"];
+      let availableWords=wordsMed;
+      let availableAnswers=answersMed;
+      let wordOrder=[];
+      let answerOrder=[];
+      let correctAnswers=[];
+      let input;
+      let curWord;
+      $("#topArea").click(game);
+      function game(){
+        if(maxRound!=0){
+          input=$("input").val().toLowerCase();
+          answerOrder.push(input);
+          input=$("input").val("");
+          $("#arrowLeft").attr("class", "arrow");
+        }      
+        if(maxRound<=10){
+          maxRound++;
+          round=maxRound;
+          if(maxRound<=10)
+            $("#roundAmount").html(round+"/10");
+          if(availableWords.length>0)
+            curWord=Math.floor(Math.random()*availableWords.length);
+          $("#topArea").html(availableWords[curWord]);
+          wordOrder.push(availableWords[curWord]);
+          correctAnswers.push(availableAnswers[curWord]);
+          availableWords.splice(curWord,1);
+          availableAnswers.splice(curWord,1);
+          if(maxRound!=1){
+            if(answerOrder[round-2]==correctAnswers[round-2]){
+            right++;
+            $("#right").html("Right<br>"+right);
+          }
+          else{
+            wrong++;
+            $("#wrong").html("Wrong<br>"+wrong);
+          }
+          }
+          $("#arrowLeft").off();
+          $("#arrowLeft").click(arrowLeft);
+          if(maxRound>10){
+            if(answerOrder[round-2]==correctAnswers[round-2]){
+              $("#topArea").css("border-color", "green");
+            }
+            else $("#topArea").css("border-color", "red");
+            round--;
+            $("#topArea").off();
+            setTimeout(()=>{
+              switch(right){
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                  alert("Score: Bad");
+                  break;
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                  alert("Score: Ok");
+                  break;
+                case 8:
+                case 9:
+                case 10:
+                  alert("Score: Good");
+                  break;
+              }
+            },100);
+          }
+        }
+      }
+      
+      function reset(){
+        right=0;
+        wrong=0;
+        round=0;
+        maxRound=0;
+        wordsLow=["water","chair","book","tree","sun","cat","dog","house","apple","happy"];
+        answersLow=["вода","стілець","книга","дерево","сонце","кіт","собака","будинок","яблуко","щасливий"];
+        wordsMed=["tree","cat","cute","love","moon","ship","blueberry","always","sometimes","evening"];
+        answersMed=["дерево","кіт","милий","любов","місяць","корабель","чорниця","завжди","іноді","вечір"];
+        wordsHard=["sanguine","ambiguous","benevolent","meticulous","malicious","optimistic","gracious","elusive","deceive","leisure"];
+        answersHard=["сангвінік","неоднозначний","доброзичливий","прискіпливий","злий","оптимістичний","милостивий","невловимий","обманювати","дозвілля"];
+        wordOrder=[];
+        answerOrder=[];
+        correctAnswers=[];
+        $("#topArea").html("Press<br>to<br>start")
+        $("#arrowLeft").off();
+        $("#arrowRight").off();
+        $("#arrowLeft").removeAttr("class", "arrow");
+        $("#arrowRight").removeAttr("class", "arrow");
+        $("#roundAmount").html(maxRound+"/10");
+        $("#topArea").css("border-color", "lightgray");
+        $("#right").html("Right<br>"+right);
+        $("#wrong").html("Wrong<br>"+wrong);
+        $("#topArea").off();
+        $("#topArea").click(game);
+        $("#easy").removeAttr("class", "curDif");
+        $("#medium").removeAttr("class", "curDif");
+        $("#hard").removeAttr("class", "curDif");
+      }
+      
+      $("#easy").click(()=>{
+        reset();
+        availableWords=wordsLow;
+        availableAnswers=answersLow;
+        $("#easy").attr("class", "curDif");
+      });
+
+      $("#medium").click(()=>{
+        reset();
+        availableWords=wordsMed;
+        availableAnswers=answersMed;
+        $("#medium").attr("class", "curDif");
+      });
+
+      $("#hard").click(()=>{
+        reset();
+        availableWords=wordsHard;
+        availableAnswers=answersHard;
+        $("#hard").attr("class", "curDif");
+      });
+
+      function arrowLeft(){
+        $("#topArea").off();
+        $("#arrowRight").attr("class", "arrow")
+        if(round>1){
+          round--;
+          if(round==1)
+          $("#arrowLeft").removeAttr("class", "arrow");
+        }
+        $("#arrowRight").off();
+        $("#arrowRight").click(arrowRight);
+        arrows();     
+      }
+      function arrowRight(){
+        if(round<=9){
+          if(round==maxRound-1)
+            $("#topArea").click(game);
+          if(round<maxRound)
+            round++;
+          if(round>1)
+            $("#arrowLeft").attr("class", "arrow");
+          if(round==maxRound){          
+            $("#arrowRight").off();
+            $("#arrowRight").removeAttr("class", "arrow");
+          }     
+          arrows();
+        }
+        else {
+          $("#arrowRight").off();
+          $("#arrowRight").removeAttr("class", "arrow");
+        }
+      }
+      function arrows(){
+        $("#roundAmount").html(round+"/10");
+        $("#topArea").html(wordOrder[round-1]);
+        if(answerOrder[round-1]==correctAnswers[round-1]){
+        $("#topArea").css("border-color", "green");
+        }
+        else $("#topArea").css("border-color", "red");
+        if(round==maxRound)
+          $("#topArea").css("border-color", "lightgray");
+      }
+    </script>
+</BODY>
+</HTML>

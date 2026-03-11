@@ -1,0 +1,206 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>auto_highlight package &mdash; Throne-of-glass 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="gradients package" href="gradients.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Throne-of-glass
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="gradients.html">gradients package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">auto_highlight package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-auto_highlight.auto_highlight">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#auto_highlight.auto_highlight.focus_check"><code class="docutils literal notranslate"><span class="pre">focus_check()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#auto_highlight.auto_highlight.get_ease"><code class="docutils literal notranslate"><span class="pre">get_ease()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#auto_highlight.auto_highlight.get_ease_back"><code class="docutils literal notranslate"><span class="pre">get_ease_back()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#auto_highlight.auto_highlight.name_callback"><code class="docutils literal notranslate"><span class="pre">name_callback()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Throne-of-glass</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">auto_highlight package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/auto_highlight.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="auto-highlight-package">
+<h1>auto_highlight package<a class="headerlink" href="#auto-highlight-package" title="Link to this heading"></a></h1>
+<section id="module-auto_highlight.auto_highlight">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-auto_highlight.auto_highlight" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_highlight.auto_highlight.focus_check">
+<span class="sig-prename descclassname"><span class="pre">auto_highlight.auto_highlight.</span></span><span class="sig-name descname"><span class="pre">focus_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">char_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anim_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anim_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ease_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;function</span> <span class="pre">get_ease&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict_ref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_highlight.auto_highlight.focus_check" title="Link to this definition"></a></dt>
+<dd><p>Checks a character’s speaking status and computes the current animation easing value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>char_name</strong> (<em>str</em>) – Name or tag of the character whose focus state is being evaluated.</p></li>
+<li><p><strong>anim_length</strong> (<em>float</em>) – Duration of the focus animation in seconds.</p></li>
+<li><p><strong>anim_time</strong> (<em>float</em>) – Current animation time value used as a reference for calculating
+transition progress.</p></li>
+<li><p><strong>ease_func</strong> (<em>Callable</em><em>[</em><em>[</em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em><em>, </em><em>optional</em>) – Easing function used to interpolate animation progress. The function
+receives a normalized value between <code class="docutils literal notranslate"><span class="pre">0.0</span></code> and <code class="docutils literal notranslate"><span class="pre">1.0</span></code> and should return
+the corresponding eased value. Defaults to <code class="docutils literal notranslate"><span class="pre">get_ease</span></code>.</p></li>
+<li><p><strong>dict_ref</strong> (<em>Hashable</em><em>, </em><em>optional</em>) – Key used to select which focus dictionary inside <code class="docutils literal notranslate"><span class="pre">sprite_focus</span></code>
+should be used. This allows multiple independent focus systems.
+Defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A tuple containing the following elements:</dt><dd><ul class="simple">
+<li><p>status(bool): Whether the character is currently considered to be speaking.</p></li>
+<li><p>curr_ease(float): Current eased animation progress in the range <code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_highlight.auto_highlight.get_ease">
+<span class="sig-prename descclassname"><span class="pre">auto_highlight.auto_highlight.</span></span><span class="sig-name descname"><span class="pre">get_ease</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_highlight.auto_highlight.get_ease" title="Link to this definition"></a></dt>
+<dd><p>Computes a smooth ease-in-out interpolation value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>t</strong> (<em>float</em>) – Normalized time value in the range <code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></code>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Interpolated progress value in the range <code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_highlight.auto_highlight.get_ease_back">
+<span class="sig-prename descclassname"><span class="pre">auto_highlight.auto_highlight.</span></span><span class="sig-name descname"><span class="pre">get_ease_back</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_highlight.auto_highlight.get_ease_back" title="Link to this definition"></a></dt>
+<dd><p>Computes an ease-in-out interpolation with an overshoot effect.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>t</strong> (<em>float</em>) – Normalized time value in the range <code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></code>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Interpolated progress value, typically in the range
+<code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></code>, with temporary overshoot during the animation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_highlight.auto_highlight.name_callback">
+<span class="sig-prename descclassname"><span class="pre">auto_highlight.auto_highlight.</span></span><span class="sig-name descname"><span class="pre">name_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_highlight.auto_highlight.name_callback" title="Link to this definition"></a></dt>
+<dd><p>Used by focus_check function to determine which sprites to put in talking and non-talking states</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event</strong> (<em>str</em>) – Name of the renpy dialogue event</p></li>
+<li><p><strong>interact</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether the interaction system is active.</p></li>
+<li><p><strong>name</strong> (<em>str</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – Name of the character talking at present.</p></li>
+<li><p><strong>**kwargs</strong> – Additional keyword arguments passed by Ren’Py.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gradients.html" class="btn btn-neutral float-left" title="gradients package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Somnia.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

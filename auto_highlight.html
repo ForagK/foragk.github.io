@@ -11,7 +11,6 @@
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
   
-    <link rel="canonical" href="https://foragk.github.io/auto_highlight.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=f2a433a1"></script>
@@ -46,7 +45,13 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="gradients.html">gradients package</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">auto_highlight package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-auto_highlight.auto_highlight">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#auto_highlight.auto_highlight.focus_check"><code class="docutils literal notranslate"><span class="pre">focus_check()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#auto_highlight.auto_highlight.get_ease"><code class="docutils literal notranslate"><span class="pre">get_ease()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#auto_highlight.auto_highlight.get_ease_back"><code class="docutils literal notranslate"><span class="pre">get_ease_back()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#auto_highlight.auto_highlight.name_callback"><code class="docutils literal notranslate"><span class="pre">name_callback()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -77,8 +82,94 @@
              
   <section id="auto-highlight-package">
 <h1>auto_highlight package<a class="headerlink" href="#auto-highlight-package" title="Link to this heading"></a></h1>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="module-auto_highlight.auto_highlight">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-auto_highlight.auto_highlight" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_highlight.auto_highlight.focus_check">
+<span class="sig-prename descclassname"><span class="pre">auto_highlight.auto_highlight.</span></span><span class="sig-name descname"><span class="pre">focus_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">char_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anim_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anim_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ease_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;function</span> <span class="pre">get_ease&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict_ref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_highlight.auto_highlight.focus_check" title="Link to this definition"></a></dt>
+<dd><p>Checks a character’s speaking status and computes the current animation easing value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>char_name</strong> (<em>str</em>) – Name or tag of the character whose focus state is being evaluated.</p></li>
+<li><p><strong>anim_length</strong> (<em>float</em>) – Duration of the focus animation in seconds.</p></li>
+<li><p><strong>anim_time</strong> (<em>float</em>) – Current animation time value used as a reference for calculating
+transition progress.</p></li>
+<li><p><strong>ease_func</strong> (<em>Callable</em><em>[</em><em>[</em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em><em>, </em><em>optional</em>) – Easing function used to interpolate animation progress. The function
+receives a normalized value between <code class="docutils literal notranslate"><span class="pre">0.0</span></code> and <code class="docutils literal notranslate"><span class="pre">1.0</span></code> and should return
+the corresponding eased value. Defaults to <code class="docutils literal notranslate"><span class="pre">get_ease</span></code>.</p></li>
+<li><p><strong>dict_ref</strong> (<em>Hashable</em><em>, </em><em>optional</em>) – Key used to select which focus dictionary inside <code class="docutils literal notranslate"><span class="pre">sprite_focus</span></code>
+should be used. This allows multiple independent focus systems.
+Defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A tuple containing the following elements:</dt><dd><ul class="simple">
+<li><p>status(bool): Whether the character is currently considered to be speaking.</p></li>
+<li><p>curr_ease(float): Current eased animation progress in the range <code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_highlight.auto_highlight.get_ease">
+<span class="sig-prename descclassname"><span class="pre">auto_highlight.auto_highlight.</span></span><span class="sig-name descname"><span class="pre">get_ease</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_highlight.auto_highlight.get_ease" title="Link to this definition"></a></dt>
+<dd><p>Computes a smooth ease-in-out interpolation value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>t</strong> (<em>float</em>) – Normalized time value in the range <code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></code>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Interpolated progress value in the range <code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_highlight.auto_highlight.get_ease_back">
+<span class="sig-prename descclassname"><span class="pre">auto_highlight.auto_highlight.</span></span><span class="sig-name descname"><span class="pre">get_ease_back</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_highlight.auto_highlight.get_ease_back" title="Link to this definition"></a></dt>
+<dd><p>Computes an ease-in-out interpolation with an overshoot effect.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>t</strong> (<em>float</em>) – Normalized time value in the range <code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></code>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Interpolated progress value, typically in the range
+<code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></code>, with temporary overshoot during the animation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_highlight.auto_highlight.name_callback">
+<span class="sig-prename descclassname"><span class="pre">auto_highlight.auto_highlight.</span></span><span class="sig-name descname"><span class="pre">name_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_highlight.auto_highlight.name_callback" title="Link to this definition"></a></dt>
+<dd><p>Used by focus_check function to determine which sprites to put in talking and non-talking states</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event</strong> (<em>str</em>) – Name of the renpy dialogue event</p></li>
+<li><p><strong>interact</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether the interaction system is active.</p></li>
+<li><p><strong>name</strong> (<em>str</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – Name of the character talking at present.</p></li>
+<li><p><strong>**kwargs</strong> – Additional keyword arguments passed by Ren’Py.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 </section>
 

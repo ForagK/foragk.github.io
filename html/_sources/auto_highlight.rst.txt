@@ -1,0 +1,10 @@
+auto\_highlight package
+=======================
+
+Module contents
+---------------
+
+.. automodule:: auto_highlight.auto_highlight
+   :members:
+   :show-inheritance:
+   :undoc-members:

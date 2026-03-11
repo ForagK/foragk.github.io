@@ -1,0 +1,10 @@
+gradients package
+=================
+
+Module contents
+---------------
+
+.. automodule:: gradients.gradient
+   :members:
+   :show-inheritance:
+   :undoc-members:

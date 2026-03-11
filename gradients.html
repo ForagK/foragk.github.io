@@ -11,6 +11,7 @@
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
   
+    <link rel="canonical" href="https://foragk.github.io/gradients.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=f2a433a1"></script>
@@ -45,15 +46,7 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">gradients package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-gradients.gradient">Module contents</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#gradients.gradient.GradientDisplayable"><code class="docutils literal notranslate"><span class="pre">GradientDisplayable()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gradients.gradient.angle_gradient"><code class="docutils literal notranslate"><span class="pre">angle_gradient()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gradients.gradient.colors_to_matrix"><code class="docutils literal notranslate"><span class="pre">colors_to_matrix()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gradients.gradient.linear_gradient"><code class="docutils literal notranslate"><span class="pre">linear_gradient()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gradients.gradient.prep_gradient_args"><code class="docutils literal notranslate"><span class="pre">prep_gradient_args()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gradients.gradient.radial_gradient"><code class="docutils literal notranslate"><span class="pre">radial_gradient()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="auto_highlight.html">auto_highlight package</a></li>
@@ -85,200 +78,8 @@
              
   <section id="gradients-package">
 <h1>gradients package<a class="headerlink" href="#gradients-package" title="Link to this heading"></a></h1>
-<section id="module-gradients.gradient">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-gradients.gradient" title="Link to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="gradients.gradient.GradientDisplayable">
-<span class="sig-prename descclassname"><span class="pre">gradients.gradient.</span></span><span class="sig-name descname"><span class="pre">GradientDisplayable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresholds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.5,</span> <span class="pre">0.5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elliptical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mirror</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gradients.gradient.GradientDisplayable" title="Link to this definition"></a></dt>
-<dd><p>A convenience function to create a displayable with a gradient shader.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>colors</strong> (<em>list</em><em> of </em><em>Color</em>) – A list of colours to use in the gradient.
-Up to 16 colours may be provided.</p></li>
-<li><p><strong>thresholds</strong> (<em>list</em><em> of </em><em>float</em>) – A list of numbers between 0.0 and 1.0 which determine where the
-colours change. The first number is where the first colour changes
-to the second, the second number is where the second colour changes
-to the third, etc. Up to 16 thresholds may be provided.</p></li>
-<li><p><strong>center</strong> (<em>tuple</em><em> of </em><em>float</em>) – The center of the gradient, as a percentage of the image size.
-(0.5, 0.5) is the center of the image. (0.0, 0.0) is the top left
-corner, and (1.0, 1.0) is the bottom right corner.
-You may also provide exact pixel values which will be converted
-into floats.</p></li>
-<li><p><strong>scale</strong> (<em>float</em>) – The scale of the gradient. 1.0 is the default, and will fill the
-entire image in at least one dimension. &lt; 1.0 makes the gradient
-smaller and &gt; 1.0 makes it bigger.</p></li>
-<li><p><strong>angle</strong> (<em>float</em>) – The angle of the gradient, in degrees. 0.0 is straight up and down.</p></li>
-<li><p><strong>elliptical</strong> (<em>bool</em>) – If False, the radial gradient will be circular regardless of the
-dimensions of the image. If True, the gradient will be elliptical
-depending on the dimensions of the image.</p></li>
-<li><p><strong>mirror</strong> (<em>bool</em>) – If True, the gradient will be mirrored. This is useful for creating
-symmetrical gradients.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="gradients.gradient.angle_gradient">
-<span class="sig-prename descclassname"><span class="pre">gradients.gradient.</span></span><span class="sig-name descname"><span class="pre">angle_gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresholds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.5,</span> <span class="pre">0.5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gradients.gradient.angle_gradient" title="Link to this definition"></a></dt>
-<dd><p>A convenience method which prepares input for a radial shader.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>colors</strong> (<em>list</em><em> of </em><em>Color</em>) – A list of colours to use in the gradient. Up to 16 colours may be
-provided.</p></li>
-<li><p><strong>thresholds</strong> (<em>list</em><em> of </em><em>float</em>) – A list of numbers between 0.0 and 1.0 which determine where the
-colours change. The first number is where the first colour changes
-to the second, the second number is where the second colour changes
-to the third, etc. Up to 16 thresholds may be provided.</p></li>
-<li><p><strong>center</strong> (<em>tuple</em><em> of </em><em>float</em>) – The center of the gradient, as a percentage of the image size.
-(0.5, 0.5) is the center of the image. (0.0, 0.0) is the top left
-corner, and (1.0, 1.0) is the bottom right corner.
-You may also provide exact pixel values which will be converted
-into floats.</p></li>
-<li><p><strong>angle</strong> (<em>int</em>) – The angle, in degrees, of the starting point of the gradient.
-0.0 has the gradient start at 12:00.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The final transform</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>angle_gradient_transform</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="gradients.gradient.colors_to_matrix">
-<span class="sig-prename descclassname"><span class="pre">gradients.gradient.</span></span><span class="sig-name descname"><span class="pre">colors_to_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gradients.gradient.colors_to_matrix" title="Link to this definition"></a></dt>
-<dd><p>Transform the provided four colours into a 4x4
-matrix with the colours in the right positions.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>color1</strong> (<em>Color</em>) – first color</p></li>
-<li><p><strong>color2</strong> (<em>Color</em>) – second color</p></li>
-<li><p><strong>color3</strong> (<em>Color</em>) – third color</p></li>
-<li><p><strong>color4</strong> (<em>Color</em>) – fourth color</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>matrix with the colours in the right positions</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>matrix</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="gradients.gradient.linear_gradient">
-<span class="sig-prename descclassname"><span class="pre">gradients.gradient.</span></span><span class="sig-name descname"><span class="pre">linear_gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresholds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.5,</span> <span class="pre">0.5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mirror</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gradients.gradient.linear_gradient" title="Link to this definition"></a></dt>
-<dd><p>A convenience method which prepares input for a linear shader.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>colors</strong> (<em>list</em><em> of </em><em>Color</em>) – A list of colours to use in the gradient.
-Up to 16 colours may be provided.</p></li>
-<li><p><strong>thresholds</strong> (<em>list</em><em> of </em><em>float</em>) – A list of numbers between 0.0 and 1.0 which determine where the
-colours change. The first number is where the first colour changes
-to the second, the second number is where the second colour changes
-to the third, etc. Up to 16 thresholds may be provided.</p></li>
-<li><p><strong>scale</strong> (<em>float</em>) – The scale of the gradient. 1.0 is the default, and will fill the
-entire image in at least one dimension. &lt; 1.0 makes the gradient
-smaller and &gt; 1.0 makes it bigger.</p></li>
-<li><p><strong>angle</strong> (<em>float</em>) – The angle of the gradient, in degrees. 0.0 is straight up and down.</p></li>
-<li><p><strong>mirror</strong> (<em>bool</em>) – If True, the gradient will be mirrored. This is useful for creating
-symmetrical gradients.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The final transform</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>linear_gradient_transform</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="gradients.gradient.prep_gradient_args">
-<span class="sig-prename descclassname"><span class="pre">gradients.gradient.</span></span><span class="sig-name descname"><span class="pre">prep_gradient_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresholds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gradients.gradient.prep_gradient_args" title="Link to this definition"></a></dt>
-<dd><p>Prepare the colours and thresholds into a shader-friendly format
-(mostly matrices).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>colors</strong> (<em>list</em><em> of </em><em>Color</em>) – A list of colours to use in the gradient. Up to 16 colours may be
-provided.</p></li>
-<li><p><strong>thresholds</strong> (<em>list</em><em> of </em><em>float</em>) – A list of numbers between 0.0 and 1.0 which determine where the
-colours change. The first number is where the first colour changes
-to the second, the second number is where the second colour changes
-to the third, etc. Up to 16 thresholds may be provided.</p></li>
-<li><p><strong>center</strong> (<em>tuple</em><em> of </em><em>float</em>) – The center of the gradient, as a percentage of the image size.
-(0.5, 0.5) is the center of the image. (0.0, 0.0) is the top left
-corner, and (1.0, 1.0) is the bottom right corner.
-You may also provide exact pixel values which will be converted
-into floats.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>A tuple containing the following elements:</dt><dd><ul class="simple">
-<li><p>one_to_four(matrix) : 1-4 colors</p></li>
-<li><p>five_to_eight(matrix) : 5-8 colors</p></li>
-<li><p>nine_to_twelve(matrix) : 9-12 colors</p></li>
-<li><p>thirteen_to_sixteen(matrix) : 13-16 colors</p></li>
-<li><p>thresholds(matrix) : thresholds</p></li>
-<li><p>calculate_center(bool) : true if center is provided as a percentage, false if as pixels</p></li>
-</ul>
-</dd>
-</dl>
-</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tuple</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="gradients.gradient.radial_gradient">
-<span class="sig-prename descclassname"><span class="pre">gradients.gradient.</span></span><span class="sig-name descname"><span class="pre">radial_gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresholds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.5,</span> <span class="pre">0.5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elliptical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gradients.gradient.radial_gradient" title="Link to this definition"></a></dt>
-<dd><p>A convenience method which prepares input for a radial shader.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>colors</strong> (<em>list</em><em> of </em><em>Color</em>) – A list of colours to use in the gradient. Up to 16 colours may be
-provided.</p></li>
-<li><p><strong>thresholds</strong> (<em>list</em><em> of </em><em>float</em>) – A list of numbers between 0.0 and 1.0 which determine where the
-colours change. The first number is where the first colour changes
-to the second, the second number is where the second colour changes
-to the third, etc. Up to 16 thresholds may be provided.</p></li>
-<li><p><strong>center</strong> (<em>tuple</em><em> of </em><em>float</em>) – The center of the gradient, as a percentage of the image size.
-(0.5, 0.5) is the center of the image. (0.0, 0.0) is the top left
-corner, and (1.0, 1.0) is the bottom right corner.
-You may also provide exact pixel values which will be converted
-into floats.</p></li>
-<li><p><strong>scale</strong> (<em>float</em>) – The scale of the gradient. 1.0 is the default, and will fill the
-entire image in at least one dimension. &lt; 1.0 makes the radius
-smaller and &gt; 1.0 makes it bigger.</p></li>
-<li><p><strong>elliptical</strong> (<em>bool</em>) – If False, the radial gradient will be circular regardless of the
-dimensions of the image. If True, the gradient will be elliptical
-depending on the dimensions of the image.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The final transform</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>radial_gradient_transform</p>
-</dd>
-</dl>
-</dd></dl>
-
+<section id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
 </section>
 </section>
 

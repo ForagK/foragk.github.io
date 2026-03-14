@@ -87,6 +87,7 @@
 <h1>gradients package<a class="headerlink" href="#gradients-package" title="Link to this heading"></a></h1>
 <section id="module-gradients.gradient">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-gradients.gradient" title="Link to this heading"></a></h2>
+<p>This module provides functions that create gradients and apply them to displayables</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="gradients.gradient.GradientDisplayable">
 <span class="sig-prename descclassname"><span class="pre">gradients.gradient.</span></span><span class="sig-name descname"><span class="pre">GradientDisplayable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresholds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.5,</span> <span class="pre">0.5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elliptical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mirror</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gradients.gradient.GradientDisplayable" title="Link to this definition"></a></dt>
@@ -95,24 +96,24 @@
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>colors</strong> (<em>list</em><em> of </em><em>Color</em>) – A list of colours to use in the gradient.
-Up to 16 colours may be provided.</p></li>
-<li><p><strong>thresholds</strong> (<em>list</em><em> of </em><em>float</em>) – A list of numbers between 0.0 and 1.0 which determine where the
+Up to <code class="docutils literal notranslate"><span class="pre">16</span></code> colours may be provided.</p></li>
+<li><p><strong>thresholds</strong> (<em>list</em><em> of </em><em>float</em>) – A list of numbers in the range <code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></code> which determine where the
 colours change. The first number is where the first colour changes
 to the second, the second number is where the second colour changes
-to the third, etc. Up to 16 thresholds may be provided.</p></li>
+to the third, etc. Up to <code class="docutils literal notranslate"><span class="pre">16</span></code> thresholds may be provided.</p></li>
 <li><p><strong>center</strong> (<em>tuple</em><em> of </em><em>float</em>) – The center of the gradient, as a percentage of the image size.
-(0.5, 0.5) is the center of the image. (0.0, 0.0) is the top left
-corner, and (1.0, 1.0) is the bottom right corner.
+<code class="docutils literal notranslate"><span class="pre">(0.5,</span> <span class="pre">0.5)</span></code> is the center of the image. <code class="docutils literal notranslate"><span class="pre">(0.0,</span> <span class="pre">0.0)</span></code> is the top left
+corner, and <code class="docutils literal notranslate"><span class="pre">(1.0,</span> <span class="pre">1.0)</span></code> is the bottom right corner.
 You may also provide exact pixel values which will be converted
 into floats.</p></li>
-<li><p><strong>scale</strong> (<em>float</em>) – The scale of the gradient. 1.0 is the default, and will fill the
-entire image in at least one dimension. &lt; 1.0 makes the gradient
-smaller and &gt; 1.0 makes it bigger.</p></li>
-<li><p><strong>angle</strong> (<em>float</em>) – The angle of the gradient, in degrees. 0.0 is straight up and down.</p></li>
-<li><p><strong>elliptical</strong> (<em>bool</em>) – If False, the radial gradient will be circular regardless of the
-dimensions of the image. If True, the gradient will be elliptical
+<li><p><strong>scale</strong> (<em>float</em>) – The scale of the gradient. <code class="docutils literal notranslate"><span class="pre">1.0</span> <span class="pre">is</span></code> the default, and will fill the
+entire image in at least one dimension. &lt; <code class="docutils literal notranslate"><span class="pre">1.0</span></code> makes the gradient
+smaller and &gt; <code class="docutils literal notranslate"><span class="pre">1.0</span></code> makes it bigger.</p></li>
+<li><p><strong>angle</strong> (<em>float</em>) – The angle of the gradient, in degrees. <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is straight up and down.</p></li>
+<li><p><strong>elliptical</strong> (<em>bool</em>) – If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the radial gradient will be circular regardless of the
+dimensions of the image. If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the gradient will be elliptical
 depending on the dimensions of the image.</p></li>
-<li><p><strong>mirror</strong> (<em>bool</em>) – If True, the gradient will be mirrored. This is useful for creating
+<li><p><strong>mirror</strong> (<em>bool</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the gradient will be mirrored. This is useful for creating
 symmetrical gradients.</p></li>
 </ul>
 </dd>
@@ -126,19 +127,19 @@ symmetrical gradients.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>colors</strong> (<em>list</em><em> of </em><em>Color</em>) – A list of colours to use in the gradient. Up to 16 colours may be
+<li><p><strong>colors</strong> (<em>list</em><em> of </em><em>Color</em>) – A list of colours to use in the gradient. Up to <code class="docutils literal notranslate"><span class="pre">16</span></code> colours may be
 provided.</p></li>
-<li><p><strong>thresholds</strong> (<em>list</em><em> of </em><em>float</em>) – A list of numbers between 0.0 and 1.0 which determine where the
+<li><p><strong>thresholds</strong> (<em>list</em><em> of </em><em>float</em>) – A list of numbers in the range <code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></code> which determine where the
 colours change. The first number is where the first colour changes
 to the second, the second number is where the second colour changes
-to the third, etc. Up to 16 thresholds may be provided.</p></li>
+to the third, etc. Up to <code class="docutils literal notranslate"><span class="pre">16</span></code> thresholds may be provided.</p></li>
 <li><p><strong>center</strong> (<em>tuple</em><em> of </em><em>float</em>) – The center of the gradient, as a percentage of the image size.
-(0.5, 0.5) is the center of the image. (0.0, 0.0) is the top left
-corner, and (1.0, 1.0) is the bottom right corner.
+<code class="docutils literal notranslate"><span class="pre">(0.5,</span> <span class="pre">0.5)</span></code> is the center of the image. <code class="docutils literal notranslate"><span class="pre">(0.0,</span> <span class="pre">0.0)</span></code> is the top left
+corner, and <code class="docutils literal notranslate"><span class="pre">(1.0,</span> <span class="pre">1.0)</span></code> is the bottom right corner.
 You may also provide exact pixel values which will be converted
 into floats.</p></li>
 <li><p><strong>angle</strong> (<em>int</em>) – The angle, in degrees, of the starting point of the gradient.
-0.0 has the gradient start at 12:00.</p></li>
+<code class="docutils literal notranslate"><span class="pre">0.0</span></code> has the gradient start at 12:00.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -181,16 +182,16 @@ matrix with the colours in the right positions.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>colors</strong> (<em>list</em><em> of </em><em>Color</em>) – A list of colours to use in the gradient.
-Up to 16 colours may be provided.</p></li>
-<li><p><strong>thresholds</strong> (<em>list</em><em> of </em><em>float</em>) – A list of numbers between 0.0 and 1.0 which determine where the
+Up to <code class="docutils literal notranslate"><span class="pre">16</span></code> colours may be provided.</p></li>
+<li><p><strong>thresholds</strong> (<em>list</em><em> of </em><em>float</em>) – A list of numbers in the range <code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></code> which determine where the
 colours change. The first number is where the first colour changes
 to the second, the second number is where the second colour changes
-to the third, etc. Up to 16 thresholds may be provided.</p></li>
-<li><p><strong>scale</strong> (<em>float</em>) – The scale of the gradient. 1.0 is the default, and will fill the
-entire image in at least one dimension. &lt; 1.0 makes the gradient
-smaller and &gt; 1.0 makes it bigger.</p></li>
-<li><p><strong>angle</strong> (<em>float</em>) – The angle of the gradient, in degrees. 0.0 is straight up and down.</p></li>
-<li><p><strong>mirror</strong> (<em>bool</em>) – If True, the gradient will be mirrored. This is useful for creating
+to the third, etc. Up to <code class="docutils literal notranslate"><span class="pre">16</span></code> thresholds may be provided.</p></li>
+<li><p><strong>scale</strong> (<em>float</em>) – The scale of the gradient. <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is the default, and will fill the
+entire image in at least one dimension. &lt; <code class="docutils literal notranslate"><span class="pre">1.0</span></code> makes the gradient
+smaller and &gt; <code class="docutils literal notranslate"><span class="pre">1.0</span></code> makes it bigger.</p></li>
+<li><p><strong>angle</strong> (<em>float</em>) – The angle of the gradient, in degrees. <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is straight up and down.</p></li>
+<li><p><strong>mirror</strong> (<em>bool</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the gradient will be mirrored. This is useful for creating
 symmetrical gradients.</p></li>
 </ul>
 </dd>
@@ -211,15 +212,15 @@ symmetrical gradients.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>colors</strong> (<em>list</em><em> of </em><em>Color</em>) – A list of colours to use in the gradient. Up to 16 colours may be
+<li><p><strong>colors</strong> (<em>list</em><em> of </em><em>Color</em>) – A list of colours to use in the gradient. Up to <code class="docutils literal notranslate"><span class="pre">16</span></code> colours may be
 provided.</p></li>
-<li><p><strong>thresholds</strong> (<em>list</em><em> of </em><em>float</em>) – A list of numbers between 0.0 and 1.0 which determine where the
+<li><p><strong>thresholds</strong> (<em>list</em><em> of </em><em>float</em>) – A list of numbers in the range <code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></code> which determine where the
 colours change. The first number is where the first colour changes
 to the second, the second number is where the second colour changes
-to the third, etc. Up to 16 thresholds may be provided.</p></li>
+to the third, etc. Up to <code class="docutils literal notranslate"><span class="pre">16</span></code> thresholds may be provided.</p></li>
 <li><p><strong>center</strong> (<em>tuple</em><em> of </em><em>float</em>) – The center of the gradient, as a percentage of the image size.
-(0.5, 0.5) is the center of the image. (0.0, 0.0) is the top left
-corner, and (1.0, 1.0) is the bottom right corner.
+<code class="docutils literal notranslate"><span class="pre">(0.5,</span> <span class="pre">0.5)</span></code> is the center of the image. <code class="docutils literal notranslate"><span class="pre">(0.0,</span> <span class="pre">0.0)</span></code> is the top left
+corner, and <code class="docutils literal notranslate"><span class="pre">(1.0,</span> <span class="pre">1.0)</span></code> is the bottom right corner.
 You may also provide exact pixel values which will be converted
 into floats.</p></li>
 </ul>
@@ -227,12 +228,12 @@ into floats.</p></li>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><dl class="simple">
 <dt>A tuple containing the following elements:</dt><dd><ul class="simple">
-<li><p>one_to_four(matrix) : 1-4 colors</p></li>
-<li><p>five_to_eight(matrix) : 5-8 colors</p></li>
-<li><p>nine_to_twelve(matrix) : 9-12 colors</p></li>
-<li><p>thirteen_to_sixteen(matrix) : 13-16 colors</p></li>
+<li><p>one_to_four(matrix) : <code class="docutils literal notranslate"><span class="pre">1-4</span></code> colors</p></li>
+<li><p>five_to_eight(matrix) : <code class="docutils literal notranslate"><span class="pre">5-8</span></code> colors</p></li>
+<li><p>nine_to_twelve(matrix) : <code class="docutils literal notranslate"><span class="pre">9-12</span></code> colors</p></li>
+<li><p>thirteen_to_sixteen(matrix) : <code class="docutils literal notranslate"><span class="pre">13-16</span></code> colors</p></li>
 <li><p>thresholds(matrix) : thresholds</p></li>
-<li><p>calculate_center(bool) : true if center is provided as a percentage, false if as pixels</p></li>
+<li><p>calculate_center(bool) : <code class="docutils literal notranslate"><span class="pre">True</span></code> if center is provided as a percentage, <code class="docutils literal notranslate"><span class="pre">False</span></code> if as pixels</p></li>
 </ul>
 </dd>
 </dl>
@@ -251,22 +252,22 @@ into floats.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>colors</strong> (<em>list</em><em> of </em><em>Color</em>) – A list of colours to use in the gradient. Up to 16 colours may be
+<li><p><strong>colors</strong> (<em>list</em><em> of </em><em>Color</em>) – A list of colours to use in the gradient. Up to <code class="docutils literal notranslate"><span class="pre">16</span></code> colours may be
 provided.</p></li>
-<li><p><strong>thresholds</strong> (<em>list</em><em> of </em><em>float</em>) – A list of numbers between 0.0 and 1.0 which determine where the
+<li><p><strong>thresholds</strong> (<em>list</em><em> of </em><em>float</em>) – A list of numbers in the range <code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></code> which determine where the
 colours change. The first number is where the first colour changes
 to the second, the second number is where the second colour changes
-to the third, etc. Up to 16 thresholds may be provided.</p></li>
+to the third, etc. Up to <code class="docutils literal notranslate"><span class="pre">16</span></code> thresholds may be provided.</p></li>
 <li><p><strong>center</strong> (<em>tuple</em><em> of </em><em>float</em>) – The center of the gradient, as a percentage of the image size.
-(0.5, 0.5) is the center of the image. (0.0, 0.0) is the top left
-corner, and (1.0, 1.0) is the bottom right corner.
+<code class="docutils literal notranslate"><span class="pre">(0.5,</span> <span class="pre">0.5)</span></code> is the center of the image. <code class="docutils literal notranslate"><span class="pre">(0.0,</span> <span class="pre">0.0)</span></code> is the top left
+corner, and <code class="docutils literal notranslate"><span class="pre">(1.0,</span> <span class="pre">1.0)</span></code> is the bottom right corner.
 You may also provide exact pixel values which will be converted
 into floats.</p></li>
-<li><p><strong>scale</strong> (<em>float</em>) – The scale of the gradient. 1.0 is the default, and will fill the
-entire image in at least one dimension. &lt; 1.0 makes the radius
-smaller and &gt; 1.0 makes it bigger.</p></li>
-<li><p><strong>elliptical</strong> (<em>bool</em>) – If False, the radial gradient will be circular regardless of the
-dimensions of the image. If True, the gradient will be elliptical
+<li><p><strong>scale</strong> (<em>float</em>) – The scale of the gradient. <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is the default, and will fill the
+entire image in at least one dimension. &lt; <code class="docutils literal notranslate"><span class="pre">1.0</span></code> makes the radius
+smaller and &gt; <code class="docutils literal notranslate"><span class="pre">1.0</span></code> makes it bigger.</p></li>
+<li><p><strong>elliptical</strong> (<em>bool</em>) – If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the radial gradient will be circular regardless of the
+dimensions of the image. If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the gradient will be elliptical
 depending on the dimensions of the image.</p></li>
 </ul>
 </dd>
